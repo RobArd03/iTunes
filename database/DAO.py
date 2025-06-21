@@ -22,6 +22,9 @@ class DAO():
         for row in cursor:
             result.append(Album(**row))
 
+        cursor.close()
+        cnx.close()
+
         return result
 
 
@@ -46,6 +49,9 @@ class DAO():
             n2 = idMap.get(row["a2"])
             if n1 is not None and n2 is not None:
                 result.append( ( n1 , n2 ) )
+
+        cursor.close()
+        cnx.close()
 
         return result
 
